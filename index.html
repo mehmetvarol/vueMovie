@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue-movie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDmwArmFnNLFbRoPa4W1q4CEld091hk6Ns",
+        authDomain: "movie-da31b.firebaseapp.com",
+        databaseURL: "https://movie-da31b.firebaseio.com",
+        projectId: "movie-da31b",
+        storageBucket: "movie-da31b.appspot.com",
+        messagingSenderId: "120210427923"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
