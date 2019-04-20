@@ -9,9 +9,11 @@ import routersOptions from './router/router'
 Vue.use(Vuex);
 Vue.use(VueRouter);
 
-const router = new VueRouter(routersOptions);
+//Router
+const router = new VueRouter(routersOptions); // router işlemleri -> router.js
 
-const store = new Vuex.Store(storeOptions);
+// Storu ayağa kaldırma
+const store = new Vuex.Store(storeOptions); // store işlemleri -> store.js
 new Vue({
   el: '#app',
   router,

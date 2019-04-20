@@ -1,9 +1,9 @@
 <template>
   <section>
     <app-header />
-    <loader v-if="isLoading" />
+    <loader v-if="isLoading" />   <!--ilk true olarak geliyor çalışacak. fethMovies dispatch edildikten sonra isLoading false oluyor ve duruyor. -->
     <section class="container py-5">
-      <div class="card-deck" v-for="group in groupedMovies" :key="group.id">
+      <div class="card-deck" v-for="group in groupedMovies" :key="group.id"> <!-- Movieleri çektiğimiz kısım -->
         <movie
         v-for="movie in group"
         :key="movie.id"
@@ -28,7 +28,7 @@ export default {
     }
   },
   computed:{
-      ...mapGetters([
+      ...mapGetters([ // map() işlemi yapıyor. forEach()
         'movies',
         'groupedMovies',
       ])
@@ -39,7 +39,7 @@ export default {
     Movie,
   },
   created(){
-    this.$store.dispatch('fetchMovies').then(() => {
+    this.$store.dispatch('fetchMovies').then(() => { // fetchMovies dispatch(sevk etmek) edildi. action'a
       this.isLoading=false;
     });
   }
@@ -49,3 +49,4 @@ export default {
 <style lang="scss">
 
 </style>
+

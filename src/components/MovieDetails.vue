@@ -22,7 +22,7 @@
                 <div class="play-icon" />
                 <img :src="trailer.thumbnail" class="thumbnail" />
               </a>
-
+              <a :href="ticketsPath" class="btn btn-success tickets-button">Bilet Al</a>
             </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default {
     });
  },
  methods: {
-    castAvatar(path) {
+    castAvatar(path) { // cast image'leri
       return `https://image.tmdb.org/t/p/w45${path}`;
     }
   },
@@ -66,22 +66,26 @@ export default {
     trailers() {
       const trailers = [];
       this.movie.videos.results.forEach((video) => {
-        if (video.type === 'Trailer') {
+        if (video.type === 'Trailer') { // fragman trailer ise
           trailers.push({
-            thumbnail: `https://i.ytimg.com/vi/${video.key}/sddefault.jpg`,
-            url: `https://youtube.com/watch?v=${video.key}`,
+            thumbnail: `https://i.ytimg.com/vi/${video.key}/sddefault.jpg`, // trailer img
+            url: `https://youtube.com/watch?v=${video.key}`, // trailer url
           });
         }
       });
       return trailers;
     },
-   runtime(){
+   runtime(){ // filmin saat olarak versiyonu
      const {runtime} = this.movie;
      const hours = Math.floor(runtime / 60);
      const minutes = runtime - (60 * hours);
 
      return `${hours}h ${minutes}m`;
+   },
+   ticketsPath(){
+     return `/movie/${this.movieId}/tickets`
    }
+
  },
  components:{
    Loader,
@@ -122,5 +126,10 @@ export default {
   height: 75px;
   top: 18px;
   left: 36px;
+}
+.tickets-button{
+  position: absolute;
+  top: 0;
+  right: 15px;
 }
 </style>
