@@ -37,7 +37,6 @@ const mutations = { // data değiştirmek istediğimizde mutation kullanılır.
     const { id, data } = payload;
     state.movieDetails[id] = data;
   },
-
   setTicketPrices(state, prices) {
     state.ticketPrices = prices;
   },

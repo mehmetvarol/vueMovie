@@ -81,7 +81,6 @@ export default {
           selected = true;
         }
       }
-
       return selected && this.selectedTime;
     }
   },
@@ -97,13 +96,13 @@ export default {
     selectTime(time) {
       this.selectedTime = time;
     },
-    addTicket(type) {
+    addTicket(type) { // bilet ekleme
       this.selectedTickets[type] = ++this.selectedTickets[type];
     },
-    removeTicket(type) {
+    removeTicket(type) { // bilet silme
       this.selectedTickets[type] = Math.max(--this.selectedTickets[type], 0);
     },
-    setTicketTypes() {
+    setTicketTypes() { // Bilet tipleri Tam, Çocuk, Öğrenci
       const types = {};
 
       this.ticketPrices.forEach((ticket) => {
@@ -165,5 +164,8 @@ export default {
   display: block;
   font-size: 24px;
   font-weight: bold;
+}
+.movie-details{
+  color: #fff;
 }
 </style>
